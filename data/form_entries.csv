@@ -1,0 +1,29 @@
+Accessibility,How-to Guidance,Introduction,Serious Game,Generation of Alternatives,Generation of Scenarios,Robustness Evaluation,Vulnerability Analysis,RDM,DAPP,EOA,IG,DS,Qualitative,Semi-quantiative,Quantitative,Case study,Author,Sector
+B,1,-1,,1,-1,,-1,-1,1,,,-1,-1,1,-1,-1,Warren et al. (2021),Water Resource Management
+A,-1,1,0,-1,-1,,-1,,1,,,,1,1,-1,1,Ferranti et al. (2021),Infrastructure & Transport
+A,-1,-1,0,1,1,-1,-1,,1,,,,1,1,-1,0,Bosomworth et al. (2015),Natural Resource Management
+A,-1,1,0,1,1,-1,-1,,1,,,,1,1,-1,0,Wallis et al. (2015),Natural Resource Management
+A,-1,-1,0,1,,,,,1,,,,1,,,0,Siebentritt & Stafford (2016),General
+A,-1,1,0,1,1,,1,,-1,,,,1,1,,1,California Sea Level Rise Guidance (2024),Sea Level Rise
+A,-1,-1,0,1,1,-1,-1,,1,,,,1,1,,1,Coulter (2019),Natural Resource Management
+C,1,1,0,1,1,1,1,-1,1,,,1,-1,1,1,1,Mendoza et al. (2018),Water Resource Management
+A,1,-1,0,1,1,,-1,,1,,,,1,1,,1,Danish Coastal Authority (2020),Cities
+B,1,1,0,1,1,1,1,-1,1,,,,1,1,-1,-1,Ministry for the Environment (2024),Sea Level Rise
+C,1,-1,0,1,1,-1,1,-1,1,,,1,,1,1,0,USACE (2019),Sea Level Rise
+A,-1,1,0,1,1,,1,,1,,,,1,,,-1,Rissik et al. (2014),Natural Resource Management
+B,1,-1,0,1,1,1,1,1,1,,1,,,,1,1,Baker et al. (2019),Water Resource Management
+B,1,1,0,1,-1,,1,,1,,,,1,1,-1,0,Pathways2Resilience (2024),General
+B,1,-1,0,,1,,1,,,,,,,1,1,1,Polster et a. (2024),General
+A,-1,-1,0,-1,-1,-1,-1,,,,,,1,,,0,Petersen et al. (2013),General
+A,1,1,0,1,1,,-1,,-1,,,,1,,,1,van den Ende et al. (2021),Cities
+A,1,-1,0,1,1,,1,,-1,,,,1,,,1,Wardekker et al. (2020),Cities
+A,-1,1,0,1,1,1,1,1,1,1,,,1,1,-1,0,Curran et al. (2023),General
+A,0,0,1,-1,-1,1,1,,,,,,1,,,0,Abad et al. (2018),General
+A,0,0,1,-1,-1,1,1,,,,,,1,1,,0,Onencan et al. (2016),Water Resource Management
+A,0,0,1,-1,-1,1,1,,1,,,,1,1,,0,Deltares (2016),Water Resource Management
+C,-1,-1,0,1,1,1,1,1,,,,1,,,1,0,Water Programming Blog (n.d.),General
+A,-1,1,0,1,1,1,1,1,1,,,,1,1,1,1,Lempert et al. (2021),Infrastructure & Transport
+C,1,1,0,0,-1,1,1,1,-1,,,,,1,1,,Reed et al. (2024),General
+A,-1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,Marchau et al. (2019),General
+C,,1,0,,,,1,-1,,,,,,,1,,Bonham et al. (2025),General
+A,1,1,0,,1,,1,-1,-1,-1,-1,1,,1,,1,Ray & Brown (2015),Water Resource Management
