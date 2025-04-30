@@ -5,6 +5,9 @@ on:
     - cron: "0 * * * *"  # every hour
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -35,3 +38,5 @@ jobs:
         git add figures/overview.png data/form_entries.csv
         git commit -m "Auto-update from Google Sheet"
         git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
