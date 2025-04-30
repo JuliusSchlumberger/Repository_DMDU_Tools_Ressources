@@ -26,7 +26,7 @@ jobs:
         curl -L "https://docs.google.com/spreadsheets/d/1br3_duuPHK40H2qki8ix8K8fdkFBk7Q4FSmzm7cPKvI/gviz/tq?tqx=out:csv&sheet=Form_Entries_Repository" -o data/form_entries.csv
 
     - name: Generate figure
-      run: python scripts/generate_figure.py
+      run: python generate_figure.py
 
     - name: Commit and push changes
       run: |
