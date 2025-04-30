@@ -1,12 +1,215 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Open Tools Repository</title>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <title>DMDU Tools & Resources Repository</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      color: #333;
+    }
+    nav {
+      width: 250px;
+      background-color: #f5f5f5;
+      padding: 2rem 1rem;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+    }
+    nav h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    nav a {
+      display: block;
+      margin: 0.5rem 0;
+      color: #444;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      flex-grow: 1;
+      padding: 2rem;
+      max-width: 1000px;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+    }
+    .button {
+      display: inline-block;
+      background-color: #007acc;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      margin: 1rem 0;
+    }
+    .button:hover {
+      background-color: #005fa3;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 2rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #eee;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
-  <h1>Community Tool Directory</h1>
-  <p><a href="https://forms.gle/YOUR_FORM_LINK">Submit a Tool</a></p>
-  <img src="figures/overview.png" alt="Overview Figure" style="max-width: 100%;">
+  <nav>
+    <h2>Navigation</h2>
+    <a href="#introduction">Introduction</a>
+    <a href="#contribute">How to Contribute</a>
+    <a href="#submit">Submit a Tool</a>
+    <a href="#figure">Summary Figure</a>
+    <a href="#tools">Tools</a>
+    <a href="#resources">Resources</a>
+  </nav>
+
+  <main>
+    <section id="introduction">
+      <h1>DMDU Tools & Resources Repository</h1>
+      <p>
+        <strong>Decision Making under Deep Uncertainty (DMDU)</strong> refers to a suite of methods that support decision-making in contexts where future conditions are highly uncertain and unpredictable.
+        Unlike traditional decision-making approaches that rely on probabilistic forecasts, DMDU emphasizes <em>robustness, flexibility, and adaptiveness</em>—prioritizing strategies that can perform well across a wide range of plausible futures.
+      </p>
+      <p>
+        Over the past decade, the DMDU community has developed a rich landscape of methods including Robust Decision Making (RDM), Dynamic Adaptive Policy Pathways (DAPP), Info-Gap Theory (IG), Decision Scaling (DS), and Engineering Options Analysis (EOA).
+        Despite this, uptake in real-world decision processes remains limited, in part due to fragmented access to practical tools and guidance materials.
+      </p>
+      <p>
+        This repository introduces the first <strong>community-driven catalogue</strong> of DMDU tools and resources, collected through a structured survey and expert input.
+        It aims to provide researchers and practitioners with a centralized, living inventory of practical aids that support the design, implementation, and communication of DMDU strategies.
+        Tools included here offer computational and modeling capabilities, while resources range from introductory materials to method-specific guides, serious games, and case study-based learning.
+      </p>
+      <p>
+        By offering a categorized, accessible collection of these materials, we hope to lower the entry barriers to DMDU adoption and foster broader, interdisciplinary application of these approaches.
+      </p>
+    </section>
+
+
+    <section id="contribute">
+      <h2>How to Contribute</h2>
+      <p>
+        This catalogue is a <strong>living platform</strong>—we welcome contributions from the DMDU community!
+        Whether you're a researcher, practitioner, or developer, you can help others by submitting your tools or resources to this repository.
+      </p>
+      <p>
+        To contribute, simply fill out the submission form linked below. We ask for general information about your contribution, such as its name, type (tool or resource), a brief description, and relevant thematic or methodological details.
+        Submissions are reviewed for relevance and categorized using an established DMDU taxonomy.
+      </p>
+      <p>
+        The website is <strong>automatically updated</strong> once per hour based on new entries in the form.
+        Contributions will appear in the summary figure and in the categorized tables below.
+      </p>
+      <p>
+        This initiative builds on the first systematic community-wide effort to catalog DMDU tools and resources.
+        It provides a foundational step toward enhancing accessibility, improving scalability, and facilitating the use of DMDU across sectors and geographies.
+      </p>
+    </section>
+
+
+    <section id="submit">
+      <h2>Submit a Tool or Resource</h2>
+      <a class="button" href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank">Submit via Google Form</a>
+    </section>
+
+    <section id="figure">
+      <h2>Overview Figure</h2>
+      <img src="figures/overview.png" alt="DMDU Tools Overview Figure">
+    </section>
+
+    <section id="tools">
+      <h2>Tools</h2>
+      <p>Below is a list of tools submitted to the repository:</p>
+      <!-- Replace with dynamic rendering later -->
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Example Tool</td>
+            <td>A tool for scenario discovery</td>
+            <td><a href="#">Link</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="resources">
+      <h2>Resources</h2>
+      <p>Below is a list of supporting resources:</p>
+      <!-- Replace with dynamic rendering later -->
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Example Resource</td>
+            <td>A dataset for DMDU testing</td>
+            <td><a href="#">Link</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="footer">
+      <p style="font-size: 0.9rem; color: #777; margin-top: 4rem;">
+        Last updated: <span id="last-updated">Loading...</span>
+      </p>
+      <script>
+        fetch('last_updated.txt')
+          .then(response => response.text())
+          .then(text => {
+            document.getElementById('last-updated').textContent = text.trim();
+          })
+          .catch(() => {
+            document.getElementById('last-updated').textContent = "Unavailable";
+          });
+      </script>
+    </section>
+  </main>
 </body>
 </html>
