@@ -218,7 +218,7 @@ fig.legend(
     handles=handles, title="Categories", bbox_to_anchor=(1.05, 1), loc="upper left"
 )
 
-timestamp = datetime.strftime("Last updated: %Y-%m-%d %H:%M UTC")
+timestamp = datetime.now().strftime("Last Updated: %Y-%m-%d %H:%M")
 plt.figtext(0.99, 0.01, timestamp, ha="right", fontsize=8, color="gray")
 
 plt.tight_layout()
