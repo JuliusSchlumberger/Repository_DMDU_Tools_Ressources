@@ -31,16 +31,12 @@ jobs:
     - name: Generate figure
       run: python generate_figures.py
 
-    - name: Write last updated timestamp
-      run: date -u +"%Y-%m-%d %H:%M UTC" > last_updated.txt
-
     - name: Commit and push changes
       run: |
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
-        git add last_updated.txt
-        git add figures/overview.png data/tools.csv last_updated.txt
-        git commit -m "Auto-update from Google Sheet" || echo "No changes"
+        git add figures/overview.png || true
+        git diff --cached --quiet || git commit -m "Auto-update from Google Sheet"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
