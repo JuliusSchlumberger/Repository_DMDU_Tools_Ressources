@@ -29,13 +29,16 @@ jobs:
         curl -L "https://docs.google.com/spreadsheets/d/1br3_duuPHK40H2qki8ix8K8fdkFBk7Q4FSmzm7cPKvI/gviz/tq?tqx=out:csv&sheet=Form_Entries_Repository" -o data/form_entries.csv
 
     - name: Generate figure
-      run: python generate_figures.py
+      run: python run_process.py
 
     - name: Commit and push changes
       run: |
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
-        git add figures/overview.png || true
+        git add figures/overview_tools.png || true
+        git add figures/overview_resources.png || true
+        git add outputs/table_tools.html || true
+        git add outputs/table_resources.html || true
         git diff --cached --quiet || git commit -m "Auto-update from Google Sheet"
         git push
       env:
