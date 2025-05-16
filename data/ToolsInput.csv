@@ -1,0 +1,18 @@
+﻿Accessibility;Prespecified (A);Iterative;Exploration (A);Search (A);Exploration (S);Search (S);Prespecified (S);Exp. Value;High. Mom.;Regret;Satisficing;Subspace Partitioning;Global Sensitivity Analysis;Name;Language
+B;1;1;1;1;1;1;1;-1;-1;-1;-1;1;1;EMA Workbench;Python
+B;1;1;1;1;1;;1;-1;-1;-1;-1;1;1;Rhodium;Python
+B;1;1;1;1;1;;1;-1;-1;-1;-1;1;1;openMORDM;R
+B;1;1;;1;1;1;;;;;;;1;OpenMOLE;GUI
+B;;;;;;;;;;;;1;;PRIM;Python
+B;;;;;;;;1;1;1;1;;;RAPID;Python
+B;;;;;;;;;;;;1;;sdtoolkit;R
+B;;;;;1;;;;;;;;1;SALib;Python
+B;;;;;;;;;;;;1;;scikit-learn;Python
+A;1;;;;;;1;;;;;;;ARCH Resilience Pathways Visualization Tool;Web app
+A;;;;;1;;1;;;;;;;Adaptation Catalyst;Web app
+A;1;1;;;1;;;;;;;;;Pathways Generator;Web app
+A;;;;;1;;;;;;;;;ScenarioWizard;GUI
+B;1;1;;;1;;1;;;;;1;1;TMIP-EMAT;Python
+A;1;1;;;1;;1;;;;1;;;CRB Post-2026 Operations Exploration Tool;Web app
+A;1;1;;;;;;;;1;1;;;CRB Robustness Tradeoffs;Web app
+A;1;1;;;;;1;1;1;;;;;mDSS;Web app
