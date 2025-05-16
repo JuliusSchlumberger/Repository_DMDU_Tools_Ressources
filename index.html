@@ -207,5 +207,27 @@
       </div>
     </section>
   </main>
+  <script>
+    // Handle all tab groups (figures and tables)
+    document.querySelectorAll('.tab-buttons').forEach(buttonGroup => {
+      const buttons = buttonGroup.querySelectorAll('.tab-button');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const targetId = button.getAttribute('data-target');
+          const tabSection = buttonGroup.parentElement;
+
+          // Deactivate all buttons and contents in this section
+          buttons.forEach(btn => btn.classList.remove('active'));
+          tabSection.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+          // Activate clicked button and target content
+          button.classList.add('active');
+          tabSection.querySelector(`#${targetId}`).classList.add('active');
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>

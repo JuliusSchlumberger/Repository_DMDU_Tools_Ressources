@@ -5,9 +5,9 @@ def generate_table(df, table_group="resources"):
     <table>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Link</th>
+                <th style="width: 20%;">Name</th>
+                <th style="width: 60%;">Description</th>
+                <th style="width: 20%;">Link</th>
             </tr>
         </thead>
         <tbody>
