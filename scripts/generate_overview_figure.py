@@ -31,9 +31,6 @@ def create_overview_plot(
     relevant_table["Accessibility"] = relevant_table["Accessibility"].astype(str).str[0]
     df = relevant_table.sort_values(by=split_by).reset_index(drop=True)
 
-    # Get unique subplot-labels
-    unique_subplot_names = df[split_by].unique()
-
     # Prepare for plotting
     if fname == "resources":
         # x_labels = df.columns[2:-1]  # Exclude the 'Author' and 'Sector' columns
@@ -44,13 +41,16 @@ def create_overview_plot(
         df["Language"] = df["Language"].replace(
             "Graphical User Interface (" "GUI)", "GUI"
         )
+
+    # Get unique subplot-labels
+    unique_subplot_names = df[split_by].unique()
     # elif fname == 'tools':
     #     # x_labels = df.columns[2:].drop(df.columns[-2])
 
     # Relative subplot heights based on the number of rows per sector group
     unique_subplot_names_counts = df[split_by].value_counts(sort=False)
     relative_heights = unique_subplot_names_counts / unique_subplot_names_counts.sum()
-
+    print(unique_subplot_names)
     # Create subplots
     fig, axes = plt.subplots(
         nrows=len(unique_subplot_names),
