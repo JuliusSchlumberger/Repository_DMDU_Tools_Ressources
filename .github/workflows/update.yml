@@ -26,7 +26,7 @@ jobs:
 
     - name: Download CSV from Google Sheets
       run: |
-        curl -L "https://docs.google.com/spreadsheets/d/17iPyVRhBKcI3oJyKB6cKVdtCq2cCKlSp5QwJnYzOL-k/export?format=csv&gid=586319749" -o data/form_entries.csv
+        curl -L "https://docs.google.com/spreadsheets/d/17iPyVRhBKcI3oJyKB6cKVdtCq2cCKlSp5QwJnYzOL-k/export?format=csv" -o data/form_entries.csv
 
     - name: Check if CSV changed
       id: csv_diff
