@@ -40,6 +40,10 @@ def create_overview_plot(
         df["Case study"] = df["Case study"].replace(
             "no, it does not contain any information from a case study.", np.nan
         )
+    else:
+        df["Language"] = df["Language"].replace(
+            "Graphical User Interface (" "GUI)", "GUI"
+        )
     # elif fname == 'tools':
     #     # x_labels = df.columns[2:].drop(df.columns[-2])
 
