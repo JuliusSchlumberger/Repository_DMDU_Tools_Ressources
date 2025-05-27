@@ -58,8 +58,8 @@ RENAMING_DICT = {
     "scenarios from a broad range of possibilities)]": "Exploration (S)",
     "What is the scope of the tool? [B: search scenarios (find conseqeuntial"
     " scenarios based on multi-criteria analysis)]": "Search (S)",
-    "What is the scope of the tool? [C: evaluate expected  performance "
-    "across scenarios]": "Exp. Value",
+    "What is the scope of the tool? [C: evaluate expected"
+    " performance across scenarios]": "Exp. Value",
     "What is the scope of the tool? [C: evaluate higher order moments ("
     "measure variation of performance across scenarios]": "High. Mom.",
     "What is the scope of the tool? [C: evaluate regret (measure deviation "

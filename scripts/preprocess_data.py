@@ -1,5 +1,4 @@
 def preprocess(df, unique_tools_column, unqiue_resource_columns, renaming_dict):
-    print(df.to_string())
     df_resources = df[
         df["Do you want to submit a tool or a resource?"]
         == "I want to submit a resource"

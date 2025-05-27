@@ -20,7 +20,6 @@ def create_overview_plot(
             column_colors[column] = colors[category]
 
     x_labels = [item for sublist in categories.values() for item in sublist]
-
     # Sort the DataFrame alphabetically by Sector and reset the index
     relevant_table = relevant_table.drop(
         columns=[
@@ -75,6 +74,7 @@ def create_overview_plot(
             by=["Accessibility", "Name"], ascending=False
         ).reset_index(drop=True)
         authors = subplot_df["Name"]
+
         subplot_df_reordered = subplot_df[x_labels]
         # subplot_df = subplot_df.drop(columns = ['Name', split_by])
 
