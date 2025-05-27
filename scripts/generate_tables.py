@@ -34,13 +34,13 @@ def generate_table(df, table_group="resources"):
         </thead>
         <tbody>
     """
-    df = df.sort_values(by="Authors")
+    df = df.sort_values(by="Name")
 
     for _, row in df.iterrows():
         html_content += f"""
             <tr>
-                <td>{row['Authors']}</td>
-                <td>{row['Short description (shortened)']}</td>
+                <td>{row['Name']}</td>
+                <td>{row['Short description']}</td>
                 <td><a href="{row['Link']}" target="_blank">Link</a></td>
             </tr>
         """

@@ -19,14 +19,30 @@ def create_overview_plot(
         for column in columns:
             column_colors[column] = colors[category]
 
+    x_labels = [item for sublist in categories.values() for item in sublist]
+
     # Sort the DataFrame alphabetically by Sector and reset the index
+    relevant_table = relevant_table.drop(
+        columns=[
+            "Name.1",
+            "Do you " "want to submit " "a tool or a " "resource?",
+            "Link",
+        ]
+    )
+    relevant_table["Accessibility"] = relevant_table["Accessibility"].astype(str).str[0]
     df = relevant_table.sort_values(by=split_by).reset_index(drop=True)
 
     # Get unique subplot-labels
     unique_subplot_names = df[split_by].unique()
 
     # Prepare for plotting
-    x_labels = df.columns[:-2]  # Exclude the 'Author' and 'Sector' columns
+    if fname == "resources":
+        # x_labels = df.columns[2:-1]  # Exclude the 'Author' and 'Sector' columns
+        df["Case study"] = df["Case study"].replace(
+            "no, it does not contain any information from a case study.", np.nan
+        )
+    # elif fname == 'tools':
+    #     # x_labels = df.columns[2:].drop(df.columns[-2])
 
     # Relative subplot heights based on the number of rows per sector group
     unique_subplot_names_counts = df[split_by].value_counts(sort=False)
@@ -59,11 +75,14 @@ def create_overview_plot(
             by=["Accessibility", "Name"], ascending=False
         ).reset_index(drop=True)
         authors = subplot_df["Name"]
+        subplot_df_reordered = subplot_df[x_labels]
+        # subplot_df = subplot_df.drop(columns = ['Name', split_by])
 
         df_numeric = turn_df_numeric_for_heatmap(
-            subplot_df[x_labels], categories
+            subplot_df_reordered, categories
         ).astype(int)
-        df_numeric.index = authors
+
+        df_numeric.set_index(authors)
 
         sns.heatmap(
             df_numeric,
@@ -78,18 +97,24 @@ def create_overview_plot(
 
         for i, author in enumerate(authors):
             for column in x_labels:
-                if subplot_df.at[subplot_df.index[i], column] == 1:
+                if subplot_df_reordered.at[subplot_df_reordered.index[i], column] in [
+                    "extensive " "coverage",
+                    "yes, it provides an extensive illustration of a case study.",
+                ]:
                     ax.plot(
-                        x_labels.get_loc(column) + 0.5,  # x-coordinate
+                        x_labels.index(column) + 0.5,  # x-coordinate
                         i + 0.5,  # y-coordinate
                         marker="o",  # Marker style (circle in this case)
                         label=column,  # Label for legend
                         color=column_colors[column][0],  # Marker color
                         markersize=10,  # Marker size
                     )
-                elif subplot_df.at[subplot_df.index[i], column] == -1:
+                elif subplot_df_reordered.at[subplot_df_reordered.index[i], column] in [
+                    "some " "coverage",
+                    "yes, it provides some shot examples from a case study.",
+                ]:
                     ax.plot(
-                        x_labels.get_loc(column) + 0.5,  # x-coordinate
+                        x_labels.index(column) + 0.5,  # x-coordinate
                         i + 0.5,  # y-coordinate
                         marker="o",  # Marker style
                         fillstyle="left",  # Fill style (left half filled)
@@ -97,12 +122,21 @@ def create_overview_plot(
                         color=column_colors[column][0],  # Marker color
                         markersize=10,  # Marker size
                     )
-                elif isinstance(subplot_df.at[subplot_df.index[i], column], str):
+                elif (
+                    isinstance(
+                        subplot_df_reordered.at[subplot_df_reordered.index[i], column],
+                        str,
+                    )
+                    and subplot_df_reordered.at[subplot_df_reordered.index[i], column]
+                    != "no coverage"
+                ):
                     corr = 0.15
-                    accessibility_text = subplot_df.at[subplot_df.index[i], column]
+                    accessibility_text = subplot_df_reordered.at[
+                        subplot_df_reordered.index[i], column
+                    ]
                     ax.annotate(
                         accessibility_text,
-                        xy=(x_labels.get_loc(column) - corr + 0.5, i + 0.5 + corr),
+                        xy=(x_labels.index(column) - corr + 0.5, i + 0.5 + corr),
                         fontsize=12,
                         fontweight="bold",
                     )

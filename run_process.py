@@ -4,13 +4,21 @@ from scripts.inputs import (
     CATEGORIES_RESSOURCES,
     COLORS_TOOLS,
     COLORS_RESSOURCES,
+    RENAMING_DICT,
+    UNIQUE_TOOLS_COLUMNS,
+    UNIQUE_RESOURCE_COLUMNS,
 )
 from scripts.generate_overview_figure import create_overview_plot
+from scripts.preprocess_data import preprocess
 from scripts.generate_tables import generate_table
 
+# Preporcess data
+df = pd.read_csv("data/form_entries.csv")
+preprocess(df, UNIQUE_TOOLS_COLUMNS, UNIQUE_RESOURCE_COLUMNS, RENAMING_DICT)
+
 # # Read the data
-df_resources = pd.read_csv("data/form_entries.csv", delimiter=";")
-df_tools = pd.read_csv("data/ToolsInput.csv", delimiter=";")
+df_resources = pd.read_csv("data/resources_table.csv", sep="\t")
+df_tools = pd.read_csv("data/tools_table.csv", sep="\t")
 # print(df_resources)
 create_overview_plot(
     categories=CATEGORIES_RESSOURCES,
@@ -28,8 +36,5 @@ create_overview_plot(
     fname="tools",
 )
 
-df_resource_table = pd.read_csv(
-    "data/table_resources.csv", sep=";", encoding="ISO-8859-1"
-)
-print(df_resource_table)
-generate_table(df_resource_table, "resources")
+generate_table(df_resources, "resources")
+generate_table(df_tools, "tools")

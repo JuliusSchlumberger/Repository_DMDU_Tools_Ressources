@@ -1,8 +1,8 @@
-name: Update Figure from Google Sheet
+name: Weekly Update from Google Sheet
 
 on:
   schedule:
-    - cron: "0 * * * *"  # every hour
+    - cron: "0 0 * * 1"  # every Monday at midnight UTC
   workflow_dispatch:
 
 permissions:
@@ -26,20 +26,39 @@ jobs:
 
     - name: Download CSV from Google Sheets
       run: |
-        curl -L "https://docs.google.com/spreadsheets/d/1br3_duuPHK40H2qki8ix8K8fdkFBk7Q4FSmzm7cPKvI/gviz/tq?tqx=out:csv&sheet=Form_Entries_Repository" -o data/form_entries.csv
+        curl -L "https://docs.google.com/spreadsheets/d/17iPyVRhBKcI3oJyKB6cKVdtCq2cCKlSp5QwJnYzOL-k/export?format=csv&gid=586319749" -o data/form_entries.csv
 
-    - name: Generate figure
+    - name: Check if CSV changed
+      id: csv_diff
+      run: |
+        git fetch origin
+        git diff --quiet HEAD -- data/form_entries.csv || echo "changed=true" >> $GITHUB_OUTPUT
+
+    - name: Generate figure (if changed)
+      if: steps.csv_diff.outputs.changed == 'true'
       run: python run_process.py
 
     - name: Commit and push changes
+      if: steps.csv_diff.outputs.changed == 'true'
       run: |
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
-        git add figures/overview_tools.png || true
-        git add figures/overview_resources.png || true
-        git add outputs/table_tools.html || true
-        git add outputs/table_resources.html || true
+        git add .
         git diff --cached --quiet || git commit -m "Auto-update from Google Sheet"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Send email notification
+      if: steps.csv_diff.outputs.changed == 'true'
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.EMAIL_USR }}
+        password: ${{ secrets.EMAIL_PWD }}
+        subject: "New Submissions in Google Sheet"
+        to: j.schlumberger@posteo.de, d.f.gold@uu.nl
+        from: GitHub Actions <${{ secrets.EMAIL_USER }}>
+        body: "New submissions were added to the Tools and Resources
+        Repostory via the survey form. Please check and adjust if incorrect."
